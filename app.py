@@ -1,6 +1,6 @@
 from flask import Flask, render_template, flash, request, redirect
 from wtforms import Form, TextField, TextAreaField, validators, StringField, SubmitField
-import quandl
+#import quandl
 import json
 import requests
 import pandas
@@ -11,16 +11,17 @@ from bokeh.plotting import figure, show, output_file
 from bokeh.embed import components
 from datetime import datetime
 
-quandl.ApiConfig.api_key = 'gJCP3YaHM38A6tRTRpSD'
+#quandl.ApiConfig.api_key 
+qakey = 'gJCP3YaHM38A6tRTRpSD'
 
 #DEBUG = True     # new
 app = Flask(__name__)
 app.config.from_object(__name__)    # new
-#app.config['SECRET_KEY'] = '314159265358979'
+app.config['SECRET_KEY'] = '314159265358979'
 
 url_p = "https://www.quandl.com/api/v3/datasets/WIKI/"
 url_j = "/data.json"
-par_s = "&api_key=" + quandl.ApiConfig.api_key + "&start_date="
+par_s = "&api_key=" + qakey + "&start_date=" #quandl.ApiConfig.api_key + "&start_date="
 par_m = "&end_date="
 par_e = "&order=asc"
 date1 = '2012-06-01'
@@ -96,6 +97,10 @@ def main():
         div = ''
     else:
       flash('Enter stock symbol ')
+
+  if name == None:
+    script = ''
+    div = ''
 
   return render_template('stock_plots.html',script=script, div=div, name=name, form=form)
 
