@@ -1,6 +1,5 @@
 from flask import Flask, render_template, flash, request, redirect
 from wtforms import Form, TextField, TextAreaField, validators, StringField, SubmitField
-import numpy as np
 import quandl
 import json
 import requests
@@ -106,5 +105,5 @@ def main():
 #def index():
 
 if __name__ == '__main__':
-  app.run(port=33507)
-#  app.run(host='0.0.0.0')
+#  app.run(port=33507)
+  app.run(host='0.0.0.0')
