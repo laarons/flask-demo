@@ -98,10 +98,6 @@ def main():
     else:
       flash('Enter stock symbol ')
 
-  if name == None:
-    script = ''
-    div = ''
-
   return render_template('stock_plots.html',script=script, div=div, name=name, form=form)
 
 # commented out the following
